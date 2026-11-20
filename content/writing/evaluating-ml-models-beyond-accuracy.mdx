@@ -1,0 +1,69 @@
+---
+title: "Evaluating Machine Learning Models Beyond Accuracy"
+slug: "evaluating-ml-models-beyond-accuracy"
+date: "2026-10-12"
+excerpt: "Accuracy is a starting point, not a verdict. Here is a practical checklist for choosing metrics, building honest splits and doing error analysis before you ship a model."
+tags: ["Machine Learning", "Evaluation", "Python"]
+featured: true
+sample: true
+language: "en"
+coverImage: "/images/writing-placeholder.svg"
+---
+
+## Why accuracy is not enough
+
+A classifier that predicts "no" for every sample can look impressive on an imbalanced dataset. Before celebrating a score, ask what the model is measured on and what mistakes cost in the real world. This note is a placeholder essay that demonstrates the article layout, code, tables, images and math.
+
+## Start with the split
+
+Keep a test set untouched until the very end. If you tune against it, it stops being a test set and becomes another training set.
+
+- Use a stratified split when classes are imbalanced.
+- Group related samples together when they come from the same user or session.
+- Record the random seed and the exact preprocessing steps.
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+```
+
+## Pick metrics that match the cost
+
+Different errors have different consequences. A spam filter and a medical screening tool should not optimize the same number.
+
+| Metric | Best when | Watch out for |
+| --- | --- | --- |
+| Accuracy | Balanced classes, equal error cost | Misleading on imbalanced data |
+| Precision | False positives are expensive | Can hide missed positives |
+| Recall | False negatives are expensive | Can flood you with false alarms |
+| F1 | You need a single balanced score | Still hides the precision/recall trade-off |
+
+The F1 score is the harmonic mean of precision and recall:
+
+$$
+F_1 = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+$$
+
+> A metric is a compressed story. Always open it up and look at the examples behind the number.
+
+## Look at the errors
+
+Plot a confusion matrix, then read a sample of the mistakes by hand. You will often find a data issue, a label ambiguity or a subgroup that the average score hides.
+
+<figure>
+  <img src="/images/writing-placeholder.svg" alt="Placeholder chart showing model metrics" />
+  <figcaption>Placeholder figure: replace with a real evaluation chart before publishing.</figcaption>
+</figure>
+
+## A short checklist
+
+1. Freeze the test set before tuning.
+2. Report more than one metric.
+3. Break results down by important subgroups.
+4. Inspect misclassified examples.
+5. Write down what the model should *not* be used for.
+
+Replace this placeholder article with your own writing before the site goes live.

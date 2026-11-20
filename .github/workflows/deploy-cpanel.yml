@@ -1,0 +1,99 @@
+name: Deploy to cPanel
+
+# No SSH required. Every push to main builds the standalone bundle on GitHub,
+# commits it to the `deploy` branch, and cPanel pulls that branch on a cron.
+# The deploy branch contains only .next/standalone contents, including its own
+# server.js, public/ and .next/static/.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cpanel-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build standalone bundle
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://prachyabiswas.com' }}
+        run: npm run build:cpanel
+
+      - name: Package standalone bundle
+        run: tar -czf cpanel-standalone.tar.gz -C .next/standalone .
+
+      - name: Make bundle downloadable
+        uses: actions/upload-artifact@v4
+        with:
+          name: cpanel-standalone
+          path: cpanel-standalone.tar.gz
+          retention-days: 14
+
+      - name: Attach bundle to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cpanel-deploy
+          name: cPanel standalone build
+          body: |
+            Standalone Next.js bundle for cPanel, built from `${{ github.sha }}`.
+
+            Download `cpanel-standalone.tar.gz`, upload it to the Node.js app
+            directory in cPanel, and extract it so `server.js`, `public/` and
+            `.next/` sit at the top level. Then restart the Node.js app.
+
+            This Release is replaced on every successful push to `main`.
+          target_commitish: ${{ github.sha }}
+          update_existing: true
+          files: cpanel-standalone.tar.gz
+
+      - name: Publish bundle to deploy branch
+        run: |
+          set -e
+          rm -rf /tmp/cpanel-standalone
+          mkdir -p /tmp/cpanel-standalone
+          cp -R .next/standalone/. /tmp/cpanel-standalone/
+
+          # Keep the cPanel-side pull helper available on the deploy branch.
+          mkdir -p /tmp/cpanel-standalone/scripts
+          cp scripts/cpanel-cron-pull.sh /tmp/cpanel-standalone/scripts/cpanel-cron-pull.sh
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git show-ref --verify --quiet refs/remotes/origin/deploy; then
+            git checkout -B deploy origin/deploy
+          else
+            git checkout -b deploy
+          fi
+
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R /tmp/cpanel-standalone/. .
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to deploy."
+          else
+            git commit -m "Deploy $GITHUB_SHA"
+            git push origin deploy
+          fi

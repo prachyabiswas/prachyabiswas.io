@@ -1,0 +1,40 @@
+---
+title: "Agentic AI From Scratch"
+slug: "agentic-ai-from-scratch"
+group: "AI"
+date: "2026-11-19"
+excerpt: "Sample note on the building blocks of agentic AI: tools, retrieval, memory and a simple reasoning loop."
+repo: "https://github.com/prachyabiswas"
+sample: true
+---
+
+## What makes an agent
+
+An agent is a model wrapped in a loop: it observes the current state, chooses an action, receives the result, and repeats until the task is done. The important part is not the model alone, but the tools and feedback around it.
+
+## A small retrieval loop
+
+A retrieval-augmented generation pipeline has three steps:
+
+1. Turn the question into a search query.
+2. Retrieve relevant chunks from a knowledge base.
+3. Pass the question and the chunks to the model with a clear instruction.
+
+A simple similarity score is the cosine similarity between two vectors:
+
+$$
+\text{similarity}(a, b) = \frac{a \cdot b}{\lVert a \rVert \, \lVert b \rVert}
+$$
+
+## Tool calling in practice
+
+Keep tool descriptions short, typed and explicit. A tool should do one thing and return a predictable result. When the result is an error, return the error as data so the agent can decide what to try next.
+
+```python
+def search_notes(query: str, limit: int = 5) -> list[str]:
+    """Return the most relevant note chunks for a query."""
+    results = index.search(query, top_k=limit)
+    return [result.text for result in results]
+```
+
+This note is a placeholder so the Notes layout, filters, math rendering and repository button can be tested before the real study material arrives.
