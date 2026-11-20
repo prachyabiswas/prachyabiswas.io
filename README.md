@@ -161,4 +161,4 @@ For GitHub auto-deploy with no SSH, `.github/workflows/deploy-cpanel.yml` builds
 
 ---
 
-Built with the help of Tawhid.
+Built with the help of [Tawhid](https://github.com/Dumbo-programmer).
