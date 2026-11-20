@@ -158,3 +158,7 @@ For GitHub auto-deploy with no SSH, `.github/workflows/deploy-cpanel.yml` builds
 - [ ] Set `NEXT_PUBLIC_SITE_URL` to the purchased domain and finish the Vercel domain setup.
 - [ ] Set `NEXT_PUBLIC_SITE_URL` to your real domain and finish the Vercel domain setup.
 - [ ] Add a real `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and a verified sending domain.
+
+---
+
+Built with the help of Tawhid.
