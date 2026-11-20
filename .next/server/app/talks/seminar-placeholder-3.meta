@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/talks/layout,_N_T_/talks/[slug]/layout,_N_T_/talks/[slug]/page,_N_T_/talks/seminar-placeholder-3"
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/e999383f720ac92f22b651135d6064d549ca96a9c85cfb6ff5e8d955b1e189f8/$/talks/seminar-placeholder-3",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/talks/[slug]/page"
+    },
+    "isFallback": false
+  }
+}

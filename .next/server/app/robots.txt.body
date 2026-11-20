@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://prachyabiswas.com
+Sitemap: https://prachyabiswas.com/sitemap.xml

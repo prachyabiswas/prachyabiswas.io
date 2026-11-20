@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/notes/layout,_N_T_/notes/[slug]/layout,_N_T_/notes/[slug]/page,_N_T_/notes/agentic-ai-from-scratch"
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/5ce0524f3bf904811c4942427bc7410f6e814339bbf52426b77ff6bae2227b63/$/notes/agentic-ai-from-scratch",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/notes/[slug]/page"
+    },
+    "isFallback": false
+  }
+}
