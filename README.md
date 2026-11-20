@@ -3,7 +3,7 @@
 
 Personal portfolio for Prachya Biswas, ML and AI Engineer. Built with Next.js App Router, TypeScript, Tailwind CSS, MDX and Resend. Deployable on Vercel or directly on cPanel via its Node.js Selector.
 
-Visit my website ([https://prachyabiswas.com/](https://prachyabiswas.com/)) for full portfolio, achievements, and experience.
+[Visit my website](https://prachyabiswas.com/) for full portfolio, achievements, and experience.
 
 The home page is a single scrolling page: navbar links move between sections. Writing, Notes and Books, Talks and Features, and Blog have their own archive pages, with individual article, note and post pages. It has a dark default theme with a decorative coding atmosphere, plus a clean light theme.
 
