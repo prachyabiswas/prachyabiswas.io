@@ -8,13 +8,13 @@
   "/opengraph-image/route": "/opengraph-image",
   "/twitter-image/route": "/twitter-image",
   "/writing/[slug]/opengraph-image/route": "/writing/[slug]/opengraph-image",
-  "/blog/[slug]/page": "/blog/[slug]",
   "/blog/page": "/blog",
+  "/blog/[slug]/page": "/blog/[slug]",
   "/notes/[slug]/page": "/notes/[slug]",
-  "/page": "/",
-  "/talks/page": "/talks",
   "/notes/page": "/notes",
+  "/page": "/",
   "/writing/page": "/writing",
+  "/talks/page": "/talks",
   "/talks/[slug]/page": "/talks/[slug]",
   "/writing/[slug]/page": "/writing/[slug]"
 }
