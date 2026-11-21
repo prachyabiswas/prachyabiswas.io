@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Noto_Sans_Bengali } from 'next/font/google';
+import { Montserrat, Noto_Sans_Bengali } from 'next/font/google';
 import type { ReactNode } from 'react';
 import './globals.css';
 import { AtmosphericBackground } from '@/components/atmospheric-background';
@@ -14,10 +14,11 @@ import { profile, socialLinks } from '@/data/content';
 import { siteDescription, siteName, siteUrl } from '@/lib/site';
 import { getArticleSummaries } from '@/lib/writing';
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-montserrat',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 const bengali = Noto_Sans_Bengali({
@@ -98,7 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${bengali.variable} dark`}
+      className={`${montserrat.variable} ${bengali.variable} dark`}
       suppressHydrationWarning
     >
       <head>

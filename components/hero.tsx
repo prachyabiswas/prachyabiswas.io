@@ -48,7 +48,7 @@ export function Hero() {
       </div>
 
       <div className="container-page relative grid items-center gap-12 md:grid-cols-[1.08fr_0.92fr]">
-        <Reveal className="order-2 md:order-1">
+        <Reveal className="order-2 [container-type:inline-size] md:order-1">
           <p className="inline-flex items-center gap-2 rounded-full border border-violet-400/60 bg-violet-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-violet-300 dark:border-violet-400/50 dark:text-violet-200">
             <Icon name="sparkles" className="h-3.5 w-3.5" />
             {profile.badgeText}
@@ -56,21 +56,23 @@ export function Hero() {
 
           <h1
             id="home-heading"
-            className="mt-7 text-[44px] font-extrabold leading-[1.05] tracking-tight sm:text-[56px] lg:text-[72px]"
+            className="mt-7 whitespace-nowrap text-[28px] font-medium leading-[1.05] tracking-tighter sm:text-[40px] lg:text-[48px]"
+            // Scales with the column width so the name always stays on one line.
+            style={{ fontSize: 'min(72px, 9cqw)' }}
           >
             Hi I&apos;m <span className="hero-name-gradient">Prachya</span>{' '}
             <span className="text-foreground">Biswas</span>
           </h1>
 
-          <p className="mt-3 text-lg font-medium text-muted sm:text-xl">
+          <p className="mt-3 text-lg font-normal text-muted sm:text-xl">
             {profile.title}
           </p>
 
-          <p className="mt-5 text-2xl font-semibold leading-tight text-foreground sm:text-3xl lg:text-[36px]">
+          <p className="mt-5 text-2xl font-medium leading-tight tracking-tighter text-foreground sm:text-3xl lg:text-[36px]">
             {profile.heroTagline}
           </p>
 
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mt-4 max-w-3xl text-base font-normal leading-relaxed text-muted sm:text-lg">
             {profile.heroHighlight}
           </p>
 
