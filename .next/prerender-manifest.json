@@ -55,11 +55,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/opengraph-image": {
+    "/sitemap.xml": {
       "initialHeaders": {
-        "cache-control": "public, immutable, no-transform, max-age=31536000",
-        "content-type": "image/png",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/opengraph-image/layout,_N_T_/opengraph-image/route,_N_T_/opengraph-image"
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "application/xml",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/sitemap.xml/layout,_N_T_/sitemap.xml/route,_N_T_/sitemap.xml"
       },
       "experimentalBypassFor": [
         {
@@ -73,7 +73,7 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/opengraph-image",
+      "srcRoute": "/sitemap.xml",
       "dataRoute": null,
       "allowHeader": [
         "host",
@@ -142,11 +142,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/sitemap.xml": {
+    "/opengraph-image": {
       "initialHeaders": {
-        "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "application/xml",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/sitemap.xml/layout,_N_T_/sitemap.xml/route,_N_T_/sitemap.xml"
+        "cache-control": "public, immutable, no-transform, max-age=31536000",
+        "content-type": "image/png",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/opengraph-image/layout,_N_T_/opengraph-image/route,_N_T_/opengraph-image"
       },
       "experimentalBypassFor": [
         {
@@ -160,7 +160,7 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/sitemap.xml",
+      "srcRoute": "/opengraph-image",
       "dataRoute": null,
       "allowHeader": [
         "host",
@@ -258,6 +258,54 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/talks",
       "dataRoute": "/talks.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/sample-post": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/sample-post.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/writing": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/writing",
+      "dataRoute": "/writing.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -387,30 +435,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/writing": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/writing",
-      "dataRoute": "/writing.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/notes/agentic-ai-from-scratch": {
       "experimentalBypassFor": [
         {
@@ -426,30 +450,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/notes/[slug]",
       "dataRoute": "/notes/agentic-ai-from-scratch.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/blog/sample-post": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/blog/[slug]",
-      "dataRoute": "/blog/sample-post.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -485,6 +485,31 @@
     }
   },
   "dynamicRoutes": {
+    "/blog/[slug]": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/blog/([^/]+?)(?:/)?$",
+      "dataRoute": "/blog/[slug].rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/blog/([^/]+?)\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/talks/[slug]": {
       "experimentalBypassFor": [
         {
@@ -535,31 +560,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/blog/[slug]": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/blog/([^/]+?)(?:/)?$",
-      "dataRoute": "/blog/[slug].rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/blog/([^/]+?)\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/writing/[slug]": {
       "experimentalBypassFor": [
         {
@@ -588,8 +588,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "f2b510581bb68f99d135a4363892bcae",
-    "previewModeSigningKey": "415083687ae6ba1cfb6199d5f4f90a9c0e51a3a80bb994c3f92c3b29c7df619c",
-    "previewModeEncryptionKey": "ed9cf5f5fd9155f756e07d96b26e32897fe0abbfaede657e92126f82c7b4ad68"
+    "previewModeId": "92da54034df08a86ad329d8564aa1ec7",
+    "previewModeSigningKey": "b2f8d077960f3c5868dcb8f314d7ad2c6950faa10f633088efd3cfa3564c9dff",
+    "previewModeEncryptionKey": "a8670b980e2b1b89a79a6c543ec5f189091d8b978354f3f26222a9990b89ac2e"
   }
 }
