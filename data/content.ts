@@ -85,10 +85,12 @@ export interface ExperienceItem {
   organizationUrl?: string;
   logo?: string;
   role: string;
-  tag: string;
+  /** Optional team or product line shown under the role, e.g. "Team: Research". */
+  tag?: string;
   period: string;
   location: string;
-  description: string;
+  /** Bullet points. Wrap words in **double asterisks** to make them bold. */
+  bullets: string[];
   links?: LinkItem[];
 }
 
@@ -386,28 +388,50 @@ export const profile: Profile = {
 export const experience: ExperienceItem[] = [
   {
     organization: 'ML & AI Research Lab, Bangladesh',
+    organizationUrl: 'https://www.mlai-research-bd.org/',
+    logo: '/logos/mlai-research-lab.jpg',
     role: 'Research Secretary',
-    tag: '[tag]',
     period: 'Apr 7, 2026 – Present',
     location: 'Dhaka, Bangladesh',
-    description:
-      'Secretary of a research lab for machine learning and AI in Bangladesh.',
+    bullets: [
+      'Serving as **Research Secretary** of **ML & AI Research Lab, Bangladesh**, a research lab for **machine learning and AI** established in 2026.',
+    ],
+    links: [
+      {
+        label: 'Website',
+        href: 'https://www.mlai-research-bd.org/',
+        icon: 'globe',
+      },
+    ],
   },
   {
     organization: 'Bangladesh Mathematical Olympiad',
+    organizationUrl: 'https://matholympiad.org.bd/',
+    logo: '/logos/bdmo.jpg',
     role: 'Academic Team Member',
-    tag: '[tag]',
     period: 'Dec 11, 2025 – Present',
     location: 'Dhaka, Bangladesh',
-    description: 'Academic team member at the national math olympiad.',
+    bullets: [
+      'Part of the **Academic Team** of the **Bangladesh Mathematical Olympiad**, the national math olympiad.',
+      'Received a **Certificate of Excellence** (2026) for Academic Team contributions.',
+    ],
+    links: [
+      { label: 'Website', href: 'https://matholympiad.org.bd/', icon: 'globe' },
+    ],
   },
   {
     organization: 'IEEE BRAC University Student Branch',
+    organizationUrl: 'https://ieeebracu.com/',
+    logo: '/logos/ieee-bracu.jpg',
     role: 'Secretariat',
-    tag: '[tag]',
     period: 'Jun 25, 2026 – Present',
     location: 'Dhaka, Bangladesh',
-    description: 'Part of the branch secretariat.',
+    bullets: [
+      'Serving on the **Secretariat** of the **IEEE BRAC University Student Branch**.',
+    ],
+    links: [
+      { label: 'Website', href: 'https://ieeebracu.com/', icon: 'globe' },
+    ],
   },
 ];
 
