@@ -249,7 +249,6 @@ export interface SiteCopy {
     detail: string;
     viewCertificate: string;
     close: string;
-    certificates: string;
   };
   form: {
     name: string;
@@ -433,6 +432,16 @@ export const achievements: Achievements = {
       certificateAlt: 'Bangladesh Blockchain and AI Olympiad finalist certificate',
     },
     {
+      id: 'duke-of-edinburgh-bronze',
+      icon: 'award',
+      title:
+        "Bronze Standard Award, The Duke of Edinburgh's International Award",
+      year: '[year]',
+      detail: 'Completed the Bronze level of the international award programme.',
+      certificatePath: '/certificates/duke-of-edinburgh.jpg',
+      certificateAlt: "Duke of Edinburgh's Bronze Award certificate",
+    },
+    {
       id: 'idsol-2026',
       icon: 'globe',
       title: 'Participant, International Data Science Olympiad (IDSOL)',
@@ -466,16 +475,6 @@ export const achievements: Achievements = {
       title: 'Former Promising Debater',
       year: '[year]',
       detail: 'Recognised at the RC CTG.mid CITY-Drishti School of Debate.',
-    },
-    {
-      id: 'duke-of-edinburgh-bronze',
-      icon: 'award',
-      title:
-        "Bronze Standard Award, The Duke of Edinburgh's International Award",
-      year: '[year]',
-      detail: 'Completed the Bronze level of the international award programme.',
-      certificatePath: '/certificates/duke-of-edinburgh.jpg',
-      certificateAlt: "Duke of Edinburgh's Bronze Award certificate",
     },
   ],
   competitions: [
@@ -921,9 +920,8 @@ export const copy: SiteCopy = {
     achievement: 'Achievement',
     year: 'Year',
     detail: 'Detail',
-    viewCertificate: 'View certificate',
+    viewCertificate: 'Certificate',
     close: 'Close',
-    certificates: 'Certificates',
   },
   form: {
     name: 'Name',

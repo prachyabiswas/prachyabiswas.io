@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { achievements, copy, type AchievementRow } from '@/data/content';
-import { CertificateAccordion } from './certificate-accordion';
 import { CertificateLightbox } from './certificate-lightbox';
 import { Icon } from './icons';
 import { Reveal } from './reveal';
@@ -44,11 +43,6 @@ function AchievementCard({ row, index }: { row: AchievementRow; index: number })
 }
 
 export function AchievementsSection() {
-  const certificateRows = achievements.honors.filter(
-    (row) => row.certificatePath,
-  );
-  const mainHonors = achievements.honors.filter((row) => !row.certificatePath);
-
   return (
     <section
       id="achievements"
@@ -65,14 +59,10 @@ export function AchievementsSection() {
           {copy.achievements.honorsTitle}
         </h3>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {mainHonors.map((row, index) => (
+          {achievements.honors.map((row, index) => (
             <AchievementCard key={row.id} row={row} index={index} />
           ))}
         </div>
-
-        {certificateRows.length ? (
-          <CertificateAccordion rows={certificateRows} />
-        ) : null}
 
         <h3 className="mt-14 text-lg font-semibold text-foreground">
           {copy.achievements.competitionsTitle}
