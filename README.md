@@ -152,7 +152,7 @@ For GitHub auto-deploy with no SSH, `.github/workflows/deploy-cpanel.yml` builds
 ## Replacement checklist before publishing
 
 - [ ] Add the three organization logos and set `experience[].logo` / `experience[].organizationUrl` when Prachya sends them. Initials are shown until then.
-- [ ] Add the certificate JPGs at `public/certificates/*.jpg`; the “View certificate” labels appear automatically when the files exist.
+- [ ] Add the certificate JPGs at `public/certificates/*.jpg`; the “Certificate” links on the first three honors appear automatically when the files exist.
 - [ ] Add seminar photos under `public/talks/[slug]/` and fill the missing seminar dates, summaries, topics and reference links.
 - [ ] Replace `[period]`, `[year]`, `[tag]` and `[one line from Prachya]` placeholders across content as real values arrive.
 - [ ] Add Kaggle and IEEE BRACU URLs to `socialLinks` / JSON-LD `sameAs` once they are sent.
