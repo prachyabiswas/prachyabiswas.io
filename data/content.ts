@@ -85,12 +85,10 @@ export interface ExperienceItem {
   organizationUrl?: string;
   logo?: string;
   role: string;
-  /** Optional team or product line shown under the role, e.g. "Team: Research". */
-  tag?: string;
+  tag: string;
   period: string;
   location: string;
-  /** Bullet points. Wrap words in **double asterisks** to make them bold. */
-  bullets: string[];
+  description: string;
   links?: LinkItem[];
 }
 
@@ -387,51 +385,29 @@ export const profile: Profile = {
 
 export const experience: ExperienceItem[] = [
   {
-    organization: 'IEEE BRAC University Student Branch',
-    organizationUrl: 'https://ieeebracu.com/',
-    logo: '/logos/ieee-bracu.jpg',
-    role: 'Secretariat',
-    period: 'Jun 25, 2026 – Present',
-    location: 'Dhaka, Bangladesh',
-    bullets: [
-      'Serving on the **Secretariat** of the **IEEE BRAC University Student Branch**.',
-    ],
-    links: [
-      { label: 'Website', href: 'https://ieeebracu.com/', icon: 'globe' },
-    ],
-  },
-  {
     organization: 'ML & AI Research Lab, Bangladesh',
-    organizationUrl: 'https://www.mlai-research-bd.org/',
-    logo: '/logos/mlai-research-lab.jpg',
     role: 'Research Secretary',
+    tag: '[tag]',
     period: 'Apr 7, 2026 – Present',
     location: 'Dhaka, Bangladesh',
-    bullets: [
-      'Serving as **Research Secretary** of **ML & AI Research Lab, Bangladesh**, a research lab for **machine learning and AI** established in 2026.',
-    ],
-    links: [
-      {
-        label: 'Website',
-        href: 'https://www.mlai-research-bd.org/',
-        icon: 'globe',
-      },
-    ],
+    description:
+      'Secretary of a research lab for machine learning and AI in Bangladesh.',
   },
   {
     organization: 'Bangladesh Mathematical Olympiad',
-    organizationUrl: 'https://matholympiad.org.bd/',
-    logo: '/logos/bdmo.jpg',
     role: 'Academic Team Member',
+    tag: '[tag]',
     period: 'Dec 11, 2025 – Present',
     location: 'Dhaka, Bangladesh',
-    bullets: [
-      'Part of the **Academic Team** of the **Bangladesh Mathematical Olympiad**, the national math olympiad.',
-      'Received a **Certificate of Excellence** (2026) for Academic Team contributions.',
-    ],
-    links: [
-      { label: 'Website', href: 'https://matholympiad.org.bd/', icon: 'globe' },
-    ],
+    description: 'Academic team member at the national math olympiad.',
+  },
+  {
+    organization: 'IEEE BRAC University Student Branch',
+    role: 'Secretariat',
+    tag: '[tag]',
+    period: 'Jun 25, 2026 – Present',
+    location: 'Dhaka, Bangladesh',
+    description: 'Part of the branch secretariat.',
   },
 ];
 
