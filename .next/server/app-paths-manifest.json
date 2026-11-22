@@ -5,16 +5,16 @@
   "/icon.svg/route": "app/icon.svg/route.js",
   "/robots.txt/route": "app/robots.txt/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/opengraph-image/route": "app/opengraph-image/route.js",
   "/twitter-image/route": "app/twitter-image/route.js",
+  "/opengraph-image/route": "app/opengraph-image/route.js",
   "/writing/[slug]/opengraph-image/route": "app/writing/[slug]/opengraph-image/route.js",
-  "/blog/page": "app/blog/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/notes/[slug]/page": "app/notes/[slug]/page.js",
   "/notes/page": "app/notes/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
   "/page": "app/page.js",
-  "/writing/page": "app/writing/page.js",
   "/talks/page": "app/talks/page.js",
+  "/notes/[slug]/page": "app/notes/[slug]/page.js",
+  "/writing/page": "app/writing/page.js",
   "/talks/[slug]/page": "app/talks/[slug]/page.js",
-  "/writing/[slug]/page": "app/writing/[slug]/page.js"
+  "/writing/[slug]/page": "app/writing/[slug]/page.js",
+  "/blog/page": "app/blog/page.js"
 }
