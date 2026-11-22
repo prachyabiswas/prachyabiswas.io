@@ -387,20 +387,6 @@ export const profile: Profile = {
 
 export const experience: ExperienceItem[] = [
   {
-    organization: 'IEEE BRAC University Student Branch',
-    organizationUrl: 'https://ieeebracu.com/',
-    logo: '/logos/ieee-bracu.jpg',
-    role: 'Secretariat',
-    period: 'Jun 25, 2026 – Present',
-    location: 'Dhaka, Bangladesh',
-    bullets: [
-      'Serving on the **Secretariat** of the **IEEE BRAC University Student Branch**.',
-    ],
-    links: [
-      { label: 'Website', href: 'https://ieeebracu.com/', icon: 'globe' },
-    ],
-  },
-  {
     organization: 'ML & AI Research Lab, Bangladesh',
     organizationUrl: 'https://www.mlai-research-bd.org/',
     logo: '/logos/mlai-research-lab.jpg',
@@ -431,6 +417,20 @@ export const experience: ExperienceItem[] = [
     ],
     links: [
       { label: 'Website', href: 'https://matholympiad.org.bd/', icon: 'globe' },
+    ],
+  },
+  {
+    organization: 'IEEE BRAC University Student Branch',
+    organizationUrl: 'https://ieeebracu.com/',
+    logo: '/logos/ieee-bracu.jpg',
+    role: 'Secretariat',
+    period: 'Jun 25, 2026 – Present',
+    location: 'Dhaka, Bangladesh',
+    bullets: [
+      'Serving on the **Secretariat** of the **IEEE BRAC University Student Branch**.',
+    ],
+    links: [
+      { label: 'Website', href: 'https://ieeebracu.com/', icon: 'globe' },
     ],
   },
 ];
