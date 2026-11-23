@@ -4,13 +4,13 @@ export type NoteGroup =
   | 'Machine Learning'
   | 'AI'
   | 'Mathematics'
-  | 'Bioinformatics';
+  | 'Bioinformatics Meets Programming';
 
 export const NOTE_GROUPS: NoteGroup[] = [
   'Machine Learning',
   'AI',
   'Mathematics',
-  'Bioinformatics',
+  'Bioinformatics Meets Programming',
 ];
 
 export interface Note {
