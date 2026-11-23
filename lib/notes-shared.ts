@@ -1,11 +1,16 @@
 /** Browser-safe note types and helpers (no Node.js filesystem imports). */
 
-export type NoteGroup = 'Machine Learning' | 'AI' | 'Mathematics';
+export type NoteGroup =
+  | 'Machine Learning'
+  | 'AI'
+  | 'Mathematics'
+  | 'Bioinformatics';
 
 export const NOTE_GROUPS: NoteGroup[] = [
   'Machine Learning',
   'AI',
   'Mathematics',
+  'Bioinformatics',
 ];
 
 export interface Note {
@@ -15,6 +20,10 @@ export interface Note {
   date: string;
   excerpt: string;
   repo?: string;
+  /** Public path of a PDF copy of the note, e.g. /notes/bioinformatics/x.pdf. */
+  pdf?: string;
+  /** Tie-breaker for notes with the same date (module number, ascending). */
+  order?: number;
   sample: boolean;
   content: string;
 }

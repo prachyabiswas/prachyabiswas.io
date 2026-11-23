@@ -77,6 +77,9 @@ export function NotesArchive({
                   {note.sample ? (
                     <span className="chip">{copy.notes.sampleLabel}</span>
                   ) : null}
+                  {note.pdf ? (
+                    <span className="chip">{copy.notes.pdfLabel}</span>
+                  ) : null}
                 </div>
 
                 <h3 className="mt-4 text-lg font-semibold leading-snug text-foreground">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowLeft, ArrowUpRight, CalendarDays } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, CalendarDays, Download } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import 'katex/dist/katex.min.css';
@@ -92,6 +92,35 @@ export default async function NotePage({ params }: NotePageProps) {
           ) : null}
         </div>
       </header>
+
+      {note.pdf ? (
+        <section className="mt-10 max-w-5xl" aria-label={copy.notes.pdfLabel}>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={note.pdf}
+              download
+              className="btn-violet !px-5 !py-2.5"
+            >
+              <Download size={16} aria-hidden="true" />
+              {copy.notes.downloadPdf}
+            </a>
+            <a
+              href={note.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-dark !px-5 !py-2.5"
+            >
+              {copy.notes.openPdf}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+          <iframe
+            src={note.pdf}
+            title={note.title}
+            className="mt-6 hidden h-[80vh] w-full rounded-card border border-line bg-surface md:block"
+          />
+        </section>
+      ) : null}
 
       <div className="article-body mt-10 max-w-3xl">
         <MDXRemote source={note.content} options={mdxOptions} />

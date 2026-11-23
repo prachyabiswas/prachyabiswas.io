@@ -40,11 +40,18 @@ export function getAllNotes(): Note[] {
         date: asString(data.date),
         excerpt: asString(data.excerpt),
         repo: asString(data.repo) || undefined,
+        pdf: asString(data.pdf) || undefined,
+        order: typeof data.order === 'number' ? data.order : undefined,
         sample: data.sample === true,
         content,
       };
     })
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort(
+      (a, b) =>
+        b.date.localeCompare(a.date) ||
+        (a.order ?? Number.MAX_SAFE_INTEGER) -
+          (b.order ?? Number.MAX_SAFE_INTEGER),
+    );
 }
 
 export function getNoteSummaries() {

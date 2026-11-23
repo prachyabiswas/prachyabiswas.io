@@ -307,6 +307,9 @@ export interface SiteCopy {
     backToNotes: string;
     viewRepo: string;
     sampleLabel: string;
+    pdfLabel: string;
+    downloadPdf: string;
+    openPdf: string;
     booksTitle: string;
     booksSubtitle: string;
     booksEmpty: string;
@@ -999,13 +1002,16 @@ export const copy: SiteCopy = {
   },
   notes: {
     subtitle:
-      'Machine learning, AI and mathematics notes from my own study, plus the books I am reading.',
+      'Machine learning, AI, mathematics and bioinformatics notes from my own study, plus the books I am reading.',
     notesTitle: 'Notes',
     allGroups: 'All',
     noNotes: 'No notes in this group yet.',
     backToNotes: 'Back to Notes',
     viewRepo: 'View repo',
     sampleLabel: 'Sample note',
+    pdfLabel: 'PDF',
+    downloadPdf: 'Download PDF',
+    openPdf: 'Open in new tab',
     booksTitle: 'Books',
     booksSubtitle:
       'A reading list of machine learning, AI and mathematics books.',
