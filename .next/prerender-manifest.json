@@ -55,11 +55,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/sitemap.xml": {
+    "/robots.txt": {
       "initialHeaders": {
         "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "application/xml",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/sitemap.xml/layout,_N_T_/sitemap.xml/route,_N_T_/sitemap.xml"
+        "content-type": "text/plain",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/robots.txt/layout,_N_T_/robots.txt/route,_N_T_/robots.txt"
       },
       "experimentalBypassFor": [
         {
@@ -73,7 +73,7 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/sitemap.xml",
+      "srcRoute": "/robots.txt",
       "dataRoute": null,
       "allowHeader": [
         "host",
@@ -142,11 +142,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/robots.txt": {
+    "/sitemap.xml": {
       "initialHeaders": {
         "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "text/plain",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/robots.txt/layout,_N_T_/robots.txt/route,_N_T_/robots.txt"
+        "content-type": "application/xml",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/sitemap.xml/layout,_N_T_/sitemap.xml/route,_N_T_/sitemap.xml"
       },
       "experimentalBypassFor": [
         {
@@ -160,7 +160,7 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/robots.txt",
+      "srcRoute": "/sitemap.xml",
       "dataRoute": null,
       "allowHeader": [
         "host",
@@ -195,30 +195,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/notes": {
       "experimentalBypassFor": [
         {
@@ -243,7 +219,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/talks": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -256,8 +232,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/talks",
-      "dataRoute": "/talks.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -387,7 +363,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/writing": {
+    "/talks": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -400,8 +376,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/writing",
-      "dataRoute": "/writing.rsc",
+      "srcRoute": "/talks",
+      "dataRoute": "/talks.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -843,7 +819,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/blog/sample-post": {
+    "/writing": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -856,8 +832,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/blog/[slug]",
-      "dataRoute": "/blog/sample-post.rsc",
+      "srcRoute": "/writing",
+      "dataRoute": "/writing.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -882,6 +858,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/writing/[slug]",
       "dataRoute": "/writing/evaluating-ml-models-beyond-accuracy.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/sample-post": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/sample-post.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -943,31 +943,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/blog/[slug]": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/blog/([^/]+?)(?:/)?$",
-      "dataRoute": "/blog/[slug].rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/blog/([^/]+?)\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/writing/[slug]": {
       "experimentalBypassFor": [
         {
@@ -992,12 +967,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/blog/[slug]": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/blog/([^/]+?)(?:/)?$",
+      "dataRoute": "/blog/[slug].rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/blog/([^/]+?)\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "2684380bb59b08379e0f20132462b34e",
-    "previewModeSigningKey": "38536a01056b8ecd26a6edb8393871b7caced27f8a85c46439576ff85395f3ca",
-    "previewModeEncryptionKey": "b2186bf2fcccc37af2f593f8d50d34af2e553713992c2f2ea451d94cc386a5c6"
+    "previewModeId": "463bcd27159f3b4dfa955dd835a09f37",
+    "previewModeSigningKey": "c495d58ddb2ef2f091bbe07a8bd9e8bcbb281f48ba217f35b8ba4d0cbbfcf4f4",
+    "previewModeEncryptionKey": "86ec1ad097cbe969e2d7e5892b4f8cf5a367ec0764dd5e2ee56eb45aefb0b150"
   }
 }

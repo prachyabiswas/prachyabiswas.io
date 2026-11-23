@@ -5,16 +5,16 @@
   "/icon.svg/route": "/icon.svg",
   "/robots.txt/route": "/robots.txt",
   "/sitemap.xml/route": "/sitemap.xml",
-  "/opengraph-image/route": "/opengraph-image",
   "/twitter-image/route": "/twitter-image",
+  "/opengraph-image/route": "/opengraph-image",
   "/writing/[slug]/opengraph-image/route": "/writing/[slug]/opengraph-image",
   "/blog/page": "/blog",
-  "/blog/[slug]/page": "/blog/[slug]",
   "/notes/[slug]/page": "/notes/[slug]",
+  "/blog/[slug]/page": "/blog/[slug]",
   "/page": "/",
-  "/talks/page": "/talks",
-  "/writing/page": "/writing",
   "/notes/page": "/notes",
   "/talks/[slug]/page": "/talks/[slug]",
-  "/writing/[slug]/page": "/writing/[slug]"
+  "/writing/[slug]/page": "/writing/[slug]",
+  "/talks/page": "/talks",
+  "/writing/page": "/writing"
 }
