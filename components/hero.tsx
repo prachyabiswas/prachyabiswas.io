@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { copy, profile } from '@/data/content';
+import { copy, profile, socialLinks } from '@/data/content';
 import { Icon } from './icons';
 import { Reveal } from './reveal';
 
@@ -16,12 +16,18 @@ const heroStars = [
   { left: '94%', top: '78%', size: 1, opacity: 0.3 },
 ];
 
+/** Contact icons shown under the intro, in this order. */
+const heroContactOrder = ['GitHub', 'Facebook', 'LinkedIn', 'Email'];
+const heroContactLinks = heroContactOrder
+  .map((label) => socialLinks.find((link) => link.label === label))
+  .filter((link): link is (typeof socialLinks)[number] => Boolean(link));
+
 export function Hero() {
   return (
     <section
       id="home"
       aria-labelledby="home-heading"
-      className="relative isolate overflow-hidden pb-20 pt-32 md:pb-28 md:pt-40"
+      className="relative isolate overflow-hidden pb-0 pt-32 md:pt-40"
     >
       <div
         aria-hidden="true"
@@ -76,7 +82,27 @@ export function Hero() {
             {profile.heroHighlight}
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
+          <ul className="mt-6 flex flex-wrap gap-3" aria-label="Contact links">
+            {heroContactLinks.map((link) => {
+              const external = link.href.startsWith('http');
+              return (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={external ? '_blank' : undefined}
+                    rel={external ? 'noopener noreferrer' : undefined}
+                    aria-label={link.label}
+                    title={link.label}
+                    className="icon-button"
+                  >
+                    <Icon name={link.icon} className="h-[18px] w-[18px]" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-7 flex flex-wrap gap-3">
             <a href="#projects" className="btn-violet">
               {copy.labels.viewProjects}
               <ArrowRight size={16} aria-hidden="true" />
